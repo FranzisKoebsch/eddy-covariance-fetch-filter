@@ -166,8 +166,8 @@ write.csv(distances_to_border, file.path(output_dir, "FetchTable.csv"), row.name
 # --- 6. Fetch Filter  ---
 # Read original Eddypro FullOutput File
 # Header lines are kept as raw text to write them back unchanged.
-header <- fread(eddypro_input, nrows = 3, header = FALSE, sep = ",",
-                colClasses = "character")
+header <- fread(eddypro_input, sep = ",", header = FALSE, nrows = 3,
+                fill = TRUE, colClasses = "character")
 dat <- fread(eddypro_input, skip = 3, header = FALSE, sep = ",", na.strings = "-9999")   
 names(dat) <- as.character(header[1])
 
